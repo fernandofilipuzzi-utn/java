@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.configure;
+package com.ejemplos.seguridad.configure;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.ejemplos.seguridad2.repository.usuarioRepository;
+import com.ejemplos.seguridad.repository.usuarioRepository;
 
 @Configuration
 public class ApplicationConfig {

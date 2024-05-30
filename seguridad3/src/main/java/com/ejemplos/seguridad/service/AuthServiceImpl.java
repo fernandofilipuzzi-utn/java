@@ -1,18 +1,19 @@
-package com.ejemplos.seguridad2.service;
+package com.ejemplos.seguridad.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import com.ejemplos.seguridad2.model.AuthResponse;
-import com.ejemplos.seguridad2.model.LoginRequest;
-import com.ejemplos.seguridad2.model.RegisterRequest;
-import com.ejemplos.seguridad2.model.Role;
-import com.ejemplos.seguridad2.model.Usuario;
-import com.ejemplos.seguridad2.repository.usuarioRepository;
+import com.ejemplos.seguridad.model.AuthResponse;
+import com.ejemplos.seguridad.model.LoginRequest;
+import com.ejemplos.seguridad.model.RegisterRequest;
+import com.ejemplos.seguridad.model.Role;
+import com.ejemplos.seguridad.model.Usuario;
+import com.ejemplos.seguridad.repository.usuarioRepository;
+
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Service
 public class AuthServiceImpl {
@@ -42,7 +43,7 @@ public class AuthServiceImpl {
     {
        Usuario user = new Usuario(
     		   		request.getUsername(),
-    		   		request.getPassword(),
+    		   		passwordEncoder.encode(request.getPassword()),
     		   		request.getFirstname(),
     		   		request.getLastname(),
     		   		request.getCountry(),

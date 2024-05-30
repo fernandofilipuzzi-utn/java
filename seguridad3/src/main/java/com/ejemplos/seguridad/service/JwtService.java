@@ -1,7 +1,8 @@
-package com.ejemplos.seguridad2.service;
+package com.ejemplos.seguridad.service;
 
 
 import java.security.Key;
+import java.security.KeyPair;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JwtService {
 
-    private static final String SECRET_KEY = "secret";
+    private static final KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.ES256);
 
     public String getToken(UserDetails user) {
         return getToken(new HashMap<>(), user);
@@ -33,18 +34,12 @@ public class JwtService {
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // 24 hours
-                .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
+                .signWith(keyPair.getPrivate(), SignatureAlgorithm.ES256)
                 .compact();
     }
 
     public String extractUsername(String token) {
         return getClaim(token, Claims::getSubject);
-    }
-
-    private Key getKey() {
-        byte[] keyBytes = SECRET_KEY.getBytes();
-        Key key = Keys.hmacShaKeyFor(keyBytes);
-        return key;
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
@@ -55,9 +50,9 @@ public class JwtService {
     private Claims getAllClaims(String token) {
         return Jwts
                 .parserBuilder()
-                .setSigningKey(getKey())
+                .setSigningKey(keyPair.getPublic())
                 .build()
-                .parseClaimsJws(token) // Corrected method
+                .parseClaimsJws(token)
                 .getBody();
     }
 

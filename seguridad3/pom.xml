@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ejemplos</groupId>
-	<artifactId>seguridad2</artifactId>
+	<artifactId>seguridad3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	
 	<parent>

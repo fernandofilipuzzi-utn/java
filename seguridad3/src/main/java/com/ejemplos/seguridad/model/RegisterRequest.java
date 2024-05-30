@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.model;
+package com.ejemplos.seguridad.model;
 
 
 public class RegisterRequest {

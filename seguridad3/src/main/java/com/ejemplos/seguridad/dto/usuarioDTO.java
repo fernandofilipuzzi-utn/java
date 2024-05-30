@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.dto;
+package com.ejemplos.seguridad.dto;
 
 public class usuarioDTO 
 {

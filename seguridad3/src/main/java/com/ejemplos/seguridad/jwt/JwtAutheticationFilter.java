@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.jwt;
+package com.ejemplos.seguridad.jwt;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.ejemplos.seguridad2.service.JwtService;
+import com.ejemplos.seguridad.service.JwtService;
 
 @Component
 public class JwtAutheticationFilter extends OncePerRequestFilter {

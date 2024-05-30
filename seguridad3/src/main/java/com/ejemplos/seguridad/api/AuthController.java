@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.api;
+package com.ejemplos.seguridad.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ejemplos.seguridad2.model.AuthResponse;
-import com.ejemplos.seguridad2.model.LoginRequest;
-import com.ejemplos.seguridad2.model.RegisterRequest;
-import com.ejemplos.seguridad2.service.AuthServiceImpl;
+import com.ejemplos.seguridad.model.AuthResponse;
+import com.ejemplos.seguridad.model.LoginRequest;
+import com.ejemplos.seguridad.model.RegisterRequest;
+import com.ejemplos.seguridad.service.AuthServiceImpl;
 
 @RestController
 @RequestMapping("/api")

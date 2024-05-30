@@ -1,4 +1,4 @@
-package com.ejemplos.seguridad2.api;
+package com.ejemplos.seguridad.api;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
